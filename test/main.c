@@ -22,6 +22,8 @@ int main(void)
   if (res->error_code != 0)
   {
     fprintf(stderr, "%s\n", EASY_CURL_STRERROR(res->error_code));
+    easy_curl_response_clean(res);
+    easy_curl_clean(http);
     return -1;
   }
   printf("Content: %s\n", res->content);

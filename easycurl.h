@@ -125,6 +125,8 @@ easy_curl* easy_curl_init()
 
 	self->get = &_get;
 	self->_curl = curl;
+
+	return self;
 }
 
 
