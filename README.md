@@ -14,18 +14,8 @@ int main(void)
   easy_curl_response* res;
   
   http = easy_curl_init();
-  if (!http)
-  {
-    fprintf(stderr, "can't initialize easy_curl\n");
-    return -1;
-  }
+
   res = http->get(http, "http://example.com/");
-  if (!res)
-  {
-    easy_curl_clean(http);
-    fprintf(stderr, "can't initialize easy_curl_response\n");
-    return -1;
-  }
   if (res->error_code != 0)
   {
     fprintf(stderr, "%s\n", EASY_CURL_STRERROR(res->error_code));
